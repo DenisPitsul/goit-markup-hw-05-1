@@ -539,8 +539,7 @@ img {
     border: none;
     background-color: #4D5AE5;
     cursor: pointer;
-    font-family: Roboto;
-    font-size: 16px;
+    font-family: "Roboto", sans-serif;    font-size: 16px;
     font-style: normal;
     font-weight: 500;
     line-height: 1.5;
@@ -706,7 +705,7 @@ img {
     transform: translate(-50%, -50%) scale(1);
     min-width: 408px;
     min-height: 584px;
-    padding: 24px;
+    padding: 72px 24px 24px 24px;
     background-color: #FCFCFC;
     border-radius: 4px;
     box-shadow: 0px 2px 1px 0px rgba(0, 0, 0, 0.20), 0px 1px 3px 0px rgba(0, 0, 0, 0.12), 0px 1px 1px 0px rgba(0, 0, 0, 0.14);
@@ -753,10 +752,6 @@ img {
     fill: #ffffff;
 }
 
-.modal-body-container {
-    margin-top: 48px;
-}
-
 .modal-title {
     font-family: 'Roboto';
     font-style: normal;
@@ -766,65 +761,78 @@ img {
     text-align: center;
     letter-spacing: 0.02em;    
     color: #2E2F42;
-    margin-bottom: 8px;
+    margin-bottom: 16px;
 }
 
 .form-field {
-    position: relative;
-    display: flex;
-    flex-direction: column;
+    margin-bottom: 8px;
 }
 
 .form-label {
-    color: #8E8F99;
+    display: block;
+    color: #8e8f99;
     font-family: 'Roboto';
     font-size: 12px;
     font-style: normal;
     font-weight: 400;
     line-height: 1.17;
-    letter-spacing: 0.48px;
+    letter-spacing: 0.04em;
     margin-bottom: 4px;
-    margin-top: 8px;
+}
+
+.form-input-container {
+    position: relative;
 }
 
 .form-input {
+    width: 100%;
     height: 40px;
     border: 1px solid rgba(46, 47, 66, 0.4);
     border-radius: 4px;
+    background-color: transparent;
     padding-left: 38px;
-    padding-top: 11px;
-    padding-bottom: 11px;
-    padding-right: 11px;
+    outline: transparent;
+    transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .form-input:focus {
-    outline: none !important;
-    border: 1px solid #4D5AE5;
+    border-color: #4D5AE5;
 }
 
 .form-icon {
     position: absolute;
-    bottom: 8px;
+    top: 50%;
+    transform: translateY(-50%);
     left: 16px;
     fill: #2E2F42;
+    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .form-input:focus + .form-icon {
     fill: #4D5AE5;;
 }
 
+.form-field-comment {
+    margin-bottom: 16px;
+}
+
 .form-comment {
+    width: 100%;
     height: 120px;
     font-family: 'Roboto';
     font-size: 12px;
     font-style: normal;
     font-weight: 400;
     line-height: 1.17;
-    letter-spacing: 0.48px;
+    letter-spacing: 0.04em;
     border-radius: 4px;
+    background-color: transparent;
+    color: rgba(46, 47, 66, 0.4);
     border: 1px solid rgba(46, 47, 66, 0.4);
     padding: 8px 16px;
+    outline: transparent;
     resize: none;
+    transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .form-comment::placeholder {
@@ -832,15 +840,14 @@ img {
 }
 
 .form-comment:focus {
-    outline: none !important;
-    border: 1px solid #4D5AE5;
+    border-color: #4D5AE5;
 }
 
 .form-field-policy {
     position: relative;
-    margin-top: 16px;
     display: flex;
     align-items: center;
+    margin-bottom: 24px;
 }
 
 .checkbox {
@@ -874,46 +881,40 @@ img {
     border-color: transparent;
 }
 
-.checkbox-icon {
-    display: flex;
-    align-self: center;
-    width: 10px;
-    height: 8px;
-    opacity: 0;
-    background-color: transparent;
-    background-image: url("../images/check.svg");
-    background-size: contain;
-    background-origin: border-box;
-    transition-property: opacity;
-    transition-duration: 250ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+.checkbox-icon-span {
+    width: 16px;
+    height: 16px;
+    border: 1px solid rgba(46, 47, 66, 0.4);
+    border-radius: 2px;
+    margin-right: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    fill: transparent;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), border 250ms cubic-bezier(0.4, 0, 0.2, 1), fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.checkbox:checked + .checkbox-icon-container .checkbox-icon {
-    opacity: 1;
- }
+.checkbox:checked + .form-label-checkbox .checkbox-icon-span {
+    background-color: #404bbf;
+    border: none;
+    fill: #F4F4FD;
+}
 
 .form-label-checkbox {
-    position: absolute;
-    left: 0;
-    padding-left: 15px;
+    display: block;
     display: flex;
     align-items: center;
-}
-
-.checkbox-text {
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 400;
     font-size: 12px;
-    line-height: 14px;
+    line-height: 1.17;
     letter-spacing: 0.04em;
-    color: #8E8F99;
-    margin-left: 9px;
+    color: #8e8f99;
 }
 
 .privacy-policy-text {
-    color: #4D5AE5;
+    color: #4d5ae5;
     text-decoration: underline;
 }
 
@@ -925,19 +926,23 @@ img {
 }
 
 .form-send-btn {
+    display: block;
     position: relative;
-    width: 169px;
+    min-width: 169px;
     height: 56px;
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
     padding: 16px 32px;
+    font-weight: 500;
+    line-height: 1.5;
+    letter-spacing: 0.04em;
     background-color: #4D5AE5;
     color: #FFFFFF;
     border-radius: 4px;
     border: none;
     cursor: pointer;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
-    transition-property: background-color;
-    transition-duration: 250ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .form-send-btn:hover,
