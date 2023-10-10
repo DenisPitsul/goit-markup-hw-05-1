@@ -930,6 +930,7 @@ img {
     position: relative;
     min-width: 169px;
     height: 56px;
+    margin: 0 auto;
     font-family: "Roboto", sans-serif;
     font-size: 16px;
     padding: 16px 32px;
